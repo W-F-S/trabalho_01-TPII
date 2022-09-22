@@ -81,8 +81,11 @@ class Vetor
 
     void escrever_vetor()
     {
+      cin>>tamanho;
       cout << "[";
-      for(int i = 0; i < tamanho; i++){cout << enderecoptr[i] << ","; }
+      for(int i = 0; i < tamanho; i++){
+        cin>> enderecoptr[i]; 
+      }
       cout << "]" << endl;
     }
 
