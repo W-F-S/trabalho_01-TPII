@@ -66,6 +66,7 @@ class Vetor
     int get_valor(int posicao) { return this->enderecoptr[posicao]; }
 
     int get_tamanho() { return this->tamanho; }
+    void set_tamanho (int tamanho){tamanho=this->tamanho;}
 
     void operator=(Vetor &vec)
     {
@@ -102,7 +103,6 @@ class Vetor
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
-
       }
       return retornar;
     }
