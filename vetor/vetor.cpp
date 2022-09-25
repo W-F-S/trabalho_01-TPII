@@ -259,8 +259,11 @@ void testes_operador_produto_escalar()
   vazio = (random % random2);
   cout << vazio << endl;
 }
-Vetor operator>>(Vetor &t){
+istream& operator>>(istream &Entrada, Vetor &t){
   cin>>t.tamanho;
+  for(int i; i<t.tamanho;i++){
+  cin>>t.enderecoptr[i];
+  }
 }
 
 
