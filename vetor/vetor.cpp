@@ -65,6 +65,7 @@ class Vetor
     int get_valor(int posicao) { return this->enderecoptr[posicao]; }
 
     int get_tamanho() { return this->tamanho; }
+    void set_tamanho (int tamanho){tamanho=this->tamanho;}
 
     void operator=(Vetor &vec)
     {
@@ -94,14 +95,14 @@ class Vetor
       return *retornar;
     }
 
-    
+
     int operator%(Vetor &vec1)
     {
       int retornar = 0;
       for (int i = 0; i < this->tamanho; i++)
       {
          retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
-        
+
       }
       return retornar;
     }
@@ -260,13 +261,16 @@ void testes_operador_produto_escalar()
   cout << vazio << endl;
 }
 istream& operator>>(istream &Entrada, Vetor &t){
-  cin>>t.tamanho;
-  for(int i; i<t.tamanho;i++){
-  cin>>t.enderecoptr[i];
+    int ntamanho;
+    int valor;
+  cin>>ntamanho;
+  t.set_tamanho(ntamanho);
+  for(int i; i<t.get_tamanho();i++){
+  cin>>valor;
+  t.set_valor(i, valor);
   }
+  return Entrada;
 }
-
-
 int main()
 {
   srand((unsigned)time(NULL));
