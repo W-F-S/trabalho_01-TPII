@@ -17,7 +17,9 @@
 9. Sobrecarga do operador "*"(gerar um terceiro vetor obtido pela multiplicação dos elementos correspondentes dos vetores que serão multiplicados). 
 10. Sobrecarga do operador "*" para multiplicar o vetor por um escalar. 
 11. Sobrecarga do operador ">>" (para digitação dos elementos dos vetor). 
-12. Sobrecarga do operador "<<" (para exibição dos elementos do vetor na tela do monitor). Obs.: Tratar as exceções necessárias. ## Restrições - Não se pode criar novos operadores. - Não se pode alterar a ordem de precedência, o agrupamento e a quantidade de operandos pré-definidos para os operadores primitivos da linguagem.
+12. Sobrecarga do operador "<<" (para exibição dos elementos do vetor na tela do monitor). 
+
+Obs.: Tratar as exceções necessárias. ## Restrições - Não se pode criar novos operadores. - Não se pode alterar a ordem de precedência, o agrupamento e a quantidade de operandos pré-definidos para os operadores primitivos da linguagem.
 
 Obs.: Tratar as exceções necessárias. 
 

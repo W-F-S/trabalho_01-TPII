@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cstdlib>
 #include <ctime> /* srand, rand */
 #include <exception>
@@ -35,10 +36,10 @@ class Vetor
         if (tamanho < 0){
           throw tamanho;
 
-        this->tamanho = tamanho;
-        this->enderecoptr = new int[tamanho];
+          this->tamanho = tamanho;
+          this->enderecoptr = new int[tamanho];
 
-        inic_valores_aleatorios();}
+          inic_valores_aleatorios();}
       }
       catch (int tamanho)
       {
@@ -94,14 +95,14 @@ class Vetor
       return *retornar;
     }
 
-    
+
     int operator%(Vetor &vec1)
     {
       int retornar = 0;
       for (int i = 0; i < this->tamanho; i++)
       {
-         retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
-        
+        retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
+
       }
       return retornar;
     }
@@ -146,6 +147,21 @@ class Vetor
       return *retornar;
     }
 
+    friend std::ostream& operator<<(std::ostream& stream, Vetor &vec)
+    {
+      int tamanho = vec.get_tamanho();
+      string retornar = "";
+
+      for(int i = 0; i< tamanho; i++ )
+      {
+        retornar += to_string(vec.get_valor(i)) + ",";  
+      }
+      stream << retornar;
+
+      return stream;
+    }
+
+
     void escrever_vetor()
     {
       cout << "[";
@@ -157,114 +173,3 @@ class Vetor
     }
 };
 
-void testes_operador_igual()
-{
-  Vetor random{};
-  cout << "vetor1:" << endl;
-  random.escrever_vetor();
-
-  cout << "vetor2:" << endl;
-  Vetor random2{};
-  random2.escrever_vetor();
-
-  cout << "vetor2 = vetor1" << endl;
-  random2 = random;
-  random2.escrever_vetor();
-}
-
-void testes_operador_somar()
-{
-  Vetor random{};
-  Vetor random2{};
-  Vetor vazio{};
-
-  random.escrever_vetor();
-  cout << "+" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random + random2);
-  vazio.escrever_vetor();
-}
-
-void testes_operador_subtrair()
-{
-  Vetor random{};
-  Vetor random2{};
-  Vetor vazio{};
-
-  random.escrever_vetor();
-  cout << "-" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random - random2);
-  vazio.escrever_vetor();
-}
-
-
-void testes_operador_dividir()
-{
-  Vetor random{};
-  Vetor random2{};
-  Vetor vazio{};
-
-  random.escrever_vetor();
-  cout << "/" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random / random2);
-  vazio.escrever_vetor();
-}
-
-
-void testes_operador_multiplicacao_vetores()
-{
-  Vetor random{};
-  Vetor random2{};
-  Vetor vazio{};
-
-  random.escrever_vetor();
-  cout << "*" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random * random2);
-  vazio.escrever_vetor();
-}
-
-
-void testes_operador_multiplicacao_escalar()
-{
-  Vetor random{};
-  Vetor random2{};
-  Vetor vazio{};
-
-  random.escrever_vetor();
-  cout << "*" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random * random2);
-  vazio.escrever_vetor();
-}
-
-
-void testes_operador_produto_escalar()
-{
-  Vetor random{3};
-  Vetor random2{3};
-  int vazio;
-
-  random.escrever_vetor();
-  cout << "%" << endl;
-  random2.escrever_vetor();
-
-  vazio = (random % random2);
-  cout << vazio << endl;
-}
-Vetor operator>>(Vetor &t){
-  cin>>t.tamanho;
-}
-
-
-int main()
-{
-  srand((unsigned)time(NULL));
-}
