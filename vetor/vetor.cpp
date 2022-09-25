@@ -32,13 +32,13 @@ class Vetor
     {
       try
       {
-        if (tamanho < 0)
+        if (tamanho < 0){
           throw tamanho;
 
         this->tamanho = tamanho;
         this->enderecoptr = new int[tamanho];
 
-        inic_valores_aleatorios();
+        inic_valores_aleatorios();}
       }
       catch (int tamanho)
       {
@@ -258,6 +258,9 @@ void testes_operador_produto_escalar()
 
   vazio = (random % random2);
   cout << vazio << endl;
+}
+Vetor operator>>(Vetor &t){
+  cin>>t.tamanho;
 }
 
 
