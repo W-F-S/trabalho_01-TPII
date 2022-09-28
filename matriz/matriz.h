@@ -29,6 +29,8 @@ class Matriz
   public: 
     Matriz()
     {
+      try
+      {
       this-> x = MATRIZ_X;
       this-> y = MATRIZ_Y; 
 
@@ -38,10 +40,17 @@ class Matriz
         enderecoptr[i] = new int[y]; 
       }
       inic_valores_aleatorios();
+      }
+     catch(bad_alloc)
+     {
+     cout<<"Não há espaço o suficiente";
+     }
     }
 
     Matriz(int x, int y)
     {
+      try
+      {
       this-> x = x;
       this-> y = y;
 
@@ -51,6 +60,10 @@ class Matriz
         enderecoptr[i] = new int[y]; 
       }
       inic_valores_aleatorios();
+      }
+      catch(bad_alloc){
+      cout<<"Não há espaço o suficiente";
+      }
     }
 
     ~Matriz() 
@@ -141,6 +154,15 @@ class Matriz
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar->set_valor(i, (this->enderecoptr[i] * vec1.get_valor(i)));
+      }
+      return *retornar;
+    }
+  Vetor &operator/(Vetor &vec1)
+    {
+      Vetor *retornar = new Vetor{};
+      for (int i = 0; i < this->tamanho; i++)
+      {
+        retornar->set_valor(i, (this->enderecoptr[i]/vec1.get_valor(i)));
       }
       return *retornar;
     }
