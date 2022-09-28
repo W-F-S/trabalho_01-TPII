@@ -160,13 +160,12 @@ class Vetor
       return stream;
     }
 
-    friend istream& operator>>(istream &Entrada, Vetor &t)
+    friend std::istream& operator>>(istream &Entrada, Vetor &t)
     {
       int ntamanho;
       int valor;
-
       cin>>ntamanho;
-      t.set_tamanho(ntamanho);
+      ntamanho=t.get_tamanho();
       for(int i=0; i<t.get_tamanho();i++)
       {
         cin>>valor;
