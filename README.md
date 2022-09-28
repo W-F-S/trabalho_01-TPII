@@ -23,6 +23,24 @@ Obs.: Tratar as exceções necessárias. ## Restrições - Não se pode criar no
 
 Obs.: Tratar as exceções necessárias. 
 
+## 2) Matriz 
+1. Definir e implementar uma classe Matriz para manipular matrizes dinâmicas.
+
+2. Atributos requeridos
+  1. Dimenssões da Matriz
+  2. Edereço da Matriz;
+
+3. Métodos requeridos 
+
+  1. Construtor sem parâmetros
+  2. Construtor com parâmetros
+  3. Destrutor
+  4. Métodos getters e setters para os atributos
+  5. Sobrecarga do operador =
+  6. Sobracarga do operador + (gerar uma terceira matriz obtida pela adição dos elementos correspondentes das matrizes que serão adicionadas)
+
+
+
 ## Restrições 
 - Não se pode criar novos operadores. 
 - Não se pode alterar a ordem de precedência, o agrupamento e a quantidade de operandos pré-definidos para os operadores primitivos da linguagem.
