@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime> /* srand, rand */
 #include <exception>
-
+#include "vetor.h"
 #define MATRIZ_X 10
 #define MATRIZ_Y 10
 
@@ -166,6 +166,5 @@ class Matriz
       }
       return *retornar;
     }
-
 
 };
