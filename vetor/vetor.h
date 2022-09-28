@@ -160,30 +160,25 @@ class Vetor
       return stream;
     }
 
-    friend istream& operator>>(istream &Entrada, Vetor &t)
+    friend std::istream& operator>>(istream &Entrada, Vetor &t)
     {
-      int ntamanho;
+      string ntamanho;
       int valor;
 
       cin>>ntamanho;
-      t.set_tamanho(ntamanho);
+      for(int i = 0; i < 
+
+      for()
+
       for(int i=0; i<t.get_tamanho();i++)
       {
         cin>>valor;
+        
         t.set_valor(i, valor);
       }
-
       return Entrada;
     }
+    
 
-    void escrever_vetor()
-    {
-      cout << "[";
-      for (int i = 0; i < tamanho; i++)
-      {
-        cout << enderecoptr[i] << ",";
-      }
-      cout << "]" << endl;
-    }
 };
 
