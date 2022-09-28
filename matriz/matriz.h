@@ -131,7 +131,7 @@ class Matriz
         }
       }
 
-      return retornar;
+      return *retornar;
     }
 
     Matriz &operator-(Matriz &mat)
@@ -145,7 +145,7 @@ class Matriz
         }
       }
 
-      return retornar;
+      return *retornar;
     }
 
     Vetor &operator*(Vetor &vec1)
