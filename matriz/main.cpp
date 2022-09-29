@@ -150,8 +150,6 @@ int main()
 
     cout << "Teste: operador >>" << endl;
     testes_operador_maior();
-    cout << "digite para continuar: ";
-    getchar();
   } 
   catch(invalid_argument& e)
   {
