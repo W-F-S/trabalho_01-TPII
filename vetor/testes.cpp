@@ -139,6 +139,7 @@ int main()
   srand((unsigned)time(NULL));
   try
   {
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
     cout << "Teste: operador =" << endl;
     testes_operador_igual();
     cout << "digite para continuar: ";
@@ -169,13 +170,13 @@ int main()
     getchar();
     cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-    cout << "Teste: operador * (escalar)" << endl;
+    cout << "Teste: operador * (produto de um vetor por uma constante)" << endl;
     testes_operador_multiplicacao_escalar();
     cout << "digite para continuar: ";
     getchar();
     cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-    cout << "Teste: operador % (escalar)" << endl;
+    cout << "Teste: operador % (produto escalar de dois vetores)" << endl;
     testes_operador_produto_escalar();
     cout << "digite para continuar: ";
     getchar();
