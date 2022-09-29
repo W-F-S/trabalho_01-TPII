@@ -4,7 +4,7 @@ void testes_operador_igual()
 {
   Matriz random{};
   Matriz random2{};
-  
+
   cout << "Matriz1:" << endl;
   cout << random;
   cout << "matriz2:" << endl;
@@ -82,7 +82,7 @@ void testes_operador_produto_escalar()
   cout << random;
   cout << "*" << endl;
   cout << valor << endl;
-  cout << "constante * Matriz1 (produto_escalar)" << endl;
+  cout << "constante * Matriz: " << endl;
   random2 = random * valor;
   cout << random2 << endl;
 }
@@ -108,47 +108,56 @@ void testes_operador_maior()
 
 int main()
 {
-  
-  cout << "Teste: operador =" << endl;
-  testes_operador_igual();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+  try
+  {
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+    cout << "Teste: operador =" << endl;
+    testes_operador_igual();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-  cout << "Teste: operador +" << endl;
-  testes_operador_somar();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+    cout << "Teste: operador +" << endl;
+    testes_operador_somar();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-  cout << "Teste: operador -" << endl;
-  testes_operador_subtrair();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+    cout << "Teste: operador -" << endl;
+    testes_operador_subtrair();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-  cout << "Teste: operador /" << endl;
-  testes_operador_dividir();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+    cout << "Teste: operador /" << endl;
+    testes_operador_dividir();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-  cout << "Teste: operador *" << endl;
-  testes_operador_multiplicar_matrizes();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
-                            
-  cout << "Teste: operador * (escalar)" << endl;
-  testes_operador_produto_escalar();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
-                          
+    cout << "Teste: operador *" << endl;
+    testes_operador_multiplicar_matrizes();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-  cout << "Teste: operador >>" << endl;
-  testes_operador_maior();
-  cout << "digite para continuar: ";
-  getchar();
-  cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+    cout << "Teste: operador * (escalar)" << endl;
+    testes_operador_produto_escalar();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+
+    cout << "Teste: operador >>" << endl;
+    testes_operador_maior();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+  } 
+  catch(invalid_argument& e)
+  {
+    cerr << e.what() << endl;
+    return -1;
+  }
+  return 0;
 }
