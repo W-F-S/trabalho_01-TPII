@@ -108,6 +108,7 @@ void testes_operador_maior()
 
 int main()
 {
+  
   cout << "Teste: operador =" << endl;
   testes_operador_igual();
   cout << "digite para continuar: ";

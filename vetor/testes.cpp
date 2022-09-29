@@ -5,13 +5,14 @@ void testes_operador_igual()
   Vetor random{};
   Vetor random2{};
 
-  cout << "vetor1:" << endl;
-  cout << random;
-  cout << "vetor2:" << endl;
-  cout << random2;
+  cout << "vetor1: " << endl;
+  cout << random << endl;
+  cout << "vetor2: " << endl;
+  cout << random2 << endl;
   cout << "vetor2 = vetor1" << endl;
   random2 = random;
-  cout << random2;
+  cout << "resposta:" << endl;
+  cout << random2 << endl;
 }
 
 void testes_operador_somar()
@@ -20,11 +21,14 @@ void testes_operador_somar()
   Vetor random2{};
   Vetor vazio{};
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "+" << endl;
-  cout << random2;
+  cout << "vetor2:" << endl;
+  cout << random2 << endl;
   vazio = (random + random2);
-  cout << vazio;
+  cout << "resposta:" << endl;
+  cout << vazio << endl;
 }
 
 void testes_operador_subtrair()
@@ -33,12 +37,15 @@ void testes_operador_subtrair()
   Vetor random2{};
   Vetor vazio{};
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "-" << endl;
-  cout << random2;
+  cout << "vetor2:" << endl;
+  cout << random2 << endl;
 
+  cout << "resposta:" << endl;
   vazio = (random - random2);
-  cout << vazio;
+  cout << vazio << endl;
 }
 
 void testes_operador_dividir()
@@ -47,41 +54,50 @@ void testes_operador_dividir()
   Vetor random2{};
   Vetor vazio{};
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "/" << endl;
-  cout << random2;
+  cout << "vetor2:" << endl;
+  cout << random2 << endl;
 
+  cout << "resposta:" << endl;
   vazio = (random / random2);
-  cout << vazio;
+  cout << vazio << endl;
 }
 
-void testes_operador_multiplicacao_vetores()
+void testes_operador_multiplicar_vetores()
 {
   Vetor random{};
   Vetor random2{};
   Vetor vazio{};
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "*" << endl;
-  cout << random2;
+  cout << "vetor2:" << endl;
+  cout << random2 << endl;
 
+  cout << "resposta:" << endl;
   vazio = (random * random2);
-  cout << vazio;
+  cout << vazio << endl;
 }
 
 
 void testes_operador_multiplicacao_escalar()
 {
   Vetor random{};
-  Vetor random2{};
+  int valor = 4;
   Vetor vazio{};
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "*" << endl;
-  cout << random2;
+  cout << "valor:" << endl;
+  cout << valor << endl;
 
-  vazio = (random * random2);
-  cout << vazio;
+  cout << "resposta:" << endl;
+  vazio = (random * valor);
+  cout << vazio << endl;
 }
 
 
@@ -91,10 +107,13 @@ void testes_operador_produto_escalar()
   Vetor random2{3};
   int vazio;
 
-  cout << random;
+  cout << "vetor1:" << endl;
+  cout << random << endl;
   cout << "%" << endl;
-  cout << random2;
+  cout << "vetor2:" << endl;
+  cout << random2 << endl;
 
+  cout << "resposta:" << endl;
   vazio = (random % random2);
   cout << vazio << endl;
 }
@@ -102,18 +121,77 @@ void testes_operador_produto_escalar()
 void testes_operador_menor()
 {
   Vetor teste1{};
-  cout << teste1;
   cout << teste1 << endl;
 }
 
 void testes_operador_maior()
 {
   Vetor teste1{};
+  cout << "vetor1:" << endl;
   cout << teste1 << endl;
+  cout << "cin >> vetor1:" << endl;
   cin >> teste1;
+  cout << "resposta:" << endl;
   cout << teste1 << endl;
 }
 int main()
 {
   srand((unsigned)time(NULL));
+  try
+  {
+    cout << "Teste: operador =" << endl;
+    testes_operador_igual();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador +" << endl;
+    testes_operador_somar();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador -" << endl;
+    testes_operador_subtrair();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador /" << endl;
+    testes_operador_dividir();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador *" << endl;
+    testes_operador_multiplicar_vetores();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador * (escalar)" << endl;
+    testes_operador_multiplicacao_escalar();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+
+    cout << "Teste: operador % (escalar)" << endl;
+    testes_operador_produto_escalar();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+                               
+    cout << "Teste: operador >>" << endl;
+    testes_operador_maior();
+    cout << "digite para continuar: ";
+    getchar();
+    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
+  }
+  catch(invalid_argument& e)
+  {
+
+    cerr << e.what() << endl;
+    return -1;
+  }
+  return 0;
 }

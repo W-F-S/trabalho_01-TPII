@@ -1,10 +1,11 @@
-#include <iostream>
-#include <algorithm>
+#include <iostream> //cin, cout
+#include <algorithm> //fgets
 #include <string>
-#include <cmath>
+#include <cmath> //floor
 #include <cstdlib>
-#include <ctime> /* srand, rand */
+#include <ctime> //srand, rand 
 #include <exception>
+#include <stdexcept>
 
 #define VECTOR_D 10
 
@@ -15,6 +16,7 @@ class Vetor
   private:
     int tamanho;
     int *enderecoptr; // aponta para um array de int de tamanho this-> tamanho
+                      //
     void inic_valores_aleatorios()
     {
       for (int i = 0; i < tamanho; i++)
@@ -33,36 +35,25 @@ class Vetor
 
     Vetor(int tamanho)
     {
-      try
+      if (tamanho < 0)
       {
-        if (tamanho < 0){
-          throw tamanho;
-
-          this->tamanho = tamanho;
-          this->enderecoptr = new int[tamanho];
-
-          inic_valores_aleatorios();}
+        throw invalid_argument("Tamanho inválido.");
       }
-      catch (int tamanho)
-      {
-        cout << "ERRO: TAMANHO " << tamanho << " inválido" << endl;
-      }
+      this->tamanho = tamanho;
+      this->enderecoptr = new int[tamanho];
+
+      inic_valores_aleatorios();
     }
 
     ~Vetor() { delete[] enderecoptr; }
 
     void set_valor(int posicao, int valor)
     {
-      try
+      if (posicao > tamanho)
       {
-        if (posicao > tamanho)
-          throw tamanho;
-        this->enderecoptr[posicao] = valor;
+        throw invalid_argument("Posição inválida.");
       }
-      catch (int tamanho)
-      {
-        cout << "ERROR: posicao invalida" << endl;
-      }
+      this->enderecoptr[posicao] = valor;
     }
 
     int get_valor(int posicao) { return this->enderecoptr[posicao]; }
@@ -71,25 +62,24 @@ class Vetor
 
     void operator=(Vetor &vec)
     {
-      try
+      if (vec.get_tamanho() != this->tamanho)
       {
-        if (vec.get_tamanho() == this->tamanho)
-        {
-          for (int i = 0; i < this->tamanho; i++)
-          {
-            this->enderecoptr[i] = vec.get_valor(i);
-          }
-        }
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
       }
-      catch (int tamanho)
+      for (int i = 0; i < this->tamanho; i++)
       {
-        cout << "ERROR: vetores de tamanho diferente" << endl;
+        this->enderecoptr[i] = vec.get_valor(i);
       }
     }
 
     Vetor &operator+(Vetor &vec1)
     {
       Vetor *retornar = new Vetor{this-> tamanho};
+
+      if (vec1.get_tamanho() != this->tamanho)
+      {
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
+      }
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar->set_valor(i, (this->enderecoptr[i] + vec1.get_valor(i)));
@@ -97,11 +87,13 @@ class Vetor
       return *retornar;
     }
 
-
-
     Vetor &operator-(Vetor &vec1)
     {
       Vetor *retornar = new Vetor{};
+      if (vec1.get_tamanho() != this->tamanho)
+      {
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
+      }
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar->set_valor(i, (this->enderecoptr[i] - vec1.get_valor(i)));
@@ -112,6 +104,11 @@ class Vetor
     Vetor &operator/(Vetor &vec1)
     {
       Vetor *retornar = new Vetor{};
+
+      if (vec1.get_tamanho() != this->tamanho)
+      {
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
+      }
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar->set_valor(i, floor(this->enderecoptr[i] / vec1.get_valor(i)));
@@ -122,6 +119,10 @@ class Vetor
     Vetor &operator*(Vetor &vec1)
     {
       Vetor *retornar = new Vetor{};
+      if (vec1.get_tamanho() != this->tamanho)
+      {
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
+      }
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar->set_valor(i, (this->enderecoptr[i] * vec1.get_valor(i)));
@@ -142,6 +143,10 @@ class Vetor
     int operator%(Vetor &vec1)
     {
       int retornar = 0;
+      if (vec1.get_tamanho() != this->tamanho)
+      {
+        throw  invalid_argument("ERROR: vetores de tamanhos diferentes");
+      }
       for (int i = 0; i < this->tamanho; i++)
       {
         retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
