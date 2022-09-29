@@ -141,7 +141,7 @@ int main()
     getchar();
     cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
 
-    cout << "Teste: operador * (escalar)" << endl;
+    cout << "Teste: operador *" << endl;
     testes_operador_produto_escalar();
     cout << "digite para continuar: ";
     getchar();
@@ -152,7 +152,6 @@ int main()
     testes_operador_maior();
     cout << "digite para continuar: ";
     getchar();
-    cout << "\033[2J\33[1;1H"; //"\033[2J\033[1;1H"
   } 
   catch(invalid_argument& e)
   {
