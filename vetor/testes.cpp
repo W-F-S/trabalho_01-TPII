@@ -3,13 +3,12 @@
 void testes_operador_igual()
 {
   Vetor random{};
+  Vetor random2{};
+
   cout << "vetor1:" << endl;
   cout << random;
-
   cout << "vetor2:" << endl;
-  Vetor random2{};
   cout << random2;
-
   cout << "vetor2 = vetor1" << endl;
   random2 = random;
   cout << random2;
@@ -24,7 +23,6 @@ void testes_operador_somar()
   cout << random;
   cout << "+" << endl;
   cout << random2;
-
   vazio = (random + random2);
   cout << vazio;
 }
@@ -101,21 +99,21 @@ void testes_operador_produto_escalar()
   cout << vazio << endl;
 }
 
-void testes_operador_maior()
+void testes_operador_menor()
 {
   Vetor teste1{};
   cout << teste1;
   cout << teste1 << endl;
 }
 
-void testes_operador_menor()
+void testes_operador_maior()
 {
   Vetor teste1{};
+  cout << teste1 << endl;
   cin >> teste1;
   cout << teste1 << endl;
 }
 int main()
 {
   srand((unsigned)time(NULL));
-  testes_operador_menor();
 }

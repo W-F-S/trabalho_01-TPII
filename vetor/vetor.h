@@ -1,5 +1,7 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
+#include <cmath>
 #include <cstdlib>
 #include <ctime> /* srand, rand */
 #include <exception>
@@ -96,15 +98,6 @@ class Vetor
     }
 
 
-    int operator%(Vetor &vec1)
-    {
-      int retornar = 0;
-      for (int i = 0; i < this->tamanho; i++)
-      {
-        retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
-      }
-      return retornar;
-    }
 
     Vetor &operator-(Vetor &vec1)
     {
@@ -121,7 +114,7 @@ class Vetor
       Vetor *retornar = new Vetor{};
       for (int i = 0; i < this->tamanho; i++)
       {
-        retornar->set_valor(i, (this->enderecoptr[i] / vec1.get_valor(i)));
+        retornar->set_valor(i, floor(this->enderecoptr[i] / vec1.get_valor(i)));
       }
       return *retornar;
     }
@@ -146,6 +139,16 @@ class Vetor
       return *retornar;
     }
 
+    int operator%(Vetor &vec1)
+    {
+      int retornar = 0;
+      for (int i = 0; i < this->tamanho; i++)
+      {
+        retornar += (this-> enderecoptr[i] * vec1.get_valor(i));
+      }
+      return retornar;
+    }
+
     friend std::ostream& operator<<(std::ostream& stream, Vetor &vec)
     {
       int tamanho = vec.get_tamanho();
@@ -160,25 +163,39 @@ class Vetor
       return stream;
     }
 
-    friend std::istream& operator>>(istream &Entrada, Vetor &t)
+    friend std::istream& operator>>(istream &Entrada, Vetor &vet)
     {
-      string ntamanho;
-      int valor;
+      string inp;
+      string temp = "";
+      int indx_vec = 0;
+      cout << "Insira os valores separados por espaços. Tam_max do vetor: " <<  vet.get_tamanho() << endl;
+      getline(cin, inp); //getline para pegar espaços
 
-      cin>>ntamanho;
-      for(int i = 0; i < 
-
-      for()
-
-      for(int i=0; i<t.get_tamanho();i++)
+      if(inp[inp.size()-1] != ' ') //verificação para pegar o ultimo valor
       {
-        cin>>valor;
-        
-        t.set_valor(i, valor);
+        inp += " ";
+      }
+      for(int i = 0; i < inp.size();i++)
+      {
+        if(inp[i] == ' ')
+        {
+          if(indx_vec < vet.get_tamanho())
+          {
+            vet.set_valor(indx_vec, stoi(temp));
+            indx_vec++;
+            temp = "";
+          }
+          else
+          {
+            cout << "ATENÇÃO: valores inseridos excedem o tamanho do vetor" << endl;
+          }
+        }
+        else
+        {
+          temp += inp[i];
+        }
       }
       return Entrada;
     }
-    
-
 };
 
