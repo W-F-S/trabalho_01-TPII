@@ -76,6 +76,14 @@ class Vetor
       }
     }
 
+    void zerar_vetor()
+    {
+      for (int i = 0; i < tamanho; i++)
+      {
+        enderecoptr[i] = 0;
+      }
+    }
+
     //somar os respectivos elementos de dois vetores diferentes, armazenando o resultado em um terceiro vetor
     Vetor &operator+(Vetor &vec1)
     {
@@ -189,7 +197,7 @@ class Vetor
       string temp = "";
       int indx_vec = 0;
 
-      cout << "Insira os valores separados por espaços. Tam_max do vetor: " <<  vet.get_tamanho() << endl;
+      cout << "Insira os valores separados por espaços. Tam_max: " <<  vet.get_tamanho() << endl;
       getline(cin, inp); //getline para pegar espaços
       if(inp[inp.size()-1] != ' ') //verificação para pegar o ultimo valor, gambiarra
       {
@@ -207,7 +215,7 @@ class Vetor
           }
           else //o codigo inserá até o maximo do vetor ser atingido
           {
-            cout << "ATENÇÃO: valores inseridos excedem o tamanho do vetor" << endl;
+            cout << "ATENÇÃO: valores inseridos excedem o tamanho maximo, valores excedentes serão excluidos" << endl;
           }
         }
         else

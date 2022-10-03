@@ -5,6 +5,7 @@
 #include <ctime> /* srand, rand */
 #include <exception>
 #include <stdexcept>
+#include "../vetor/vetor.h"
 
 #define MATRIZ_X 3
 #define MATRIZ_Y 3
@@ -208,7 +209,7 @@ class Matriz
       return *retornar;
     }
 
-    //divide os respectivos valores de duas matrizes, obtendo sempre o chão do resultado, e retorna uma terceira matriz com o resultado
+    //divide os respectivos valores de duas matrizes, obtendo sempre o floor do resultado, e retorna uma terceira matriz com o resultado
     Matriz &operator/(Matriz &mat)
     {
       Matriz *retornar = new Matriz{this-> x, this-> y};
@@ -227,7 +228,7 @@ class Matriz
       return *retornar;
     }
 
-    //mostra o codeudo de uma matriz na tela
+    //mostra o coteudo de uma matriz na tela
     friend std::ostream& operator<<(std::ostream& stream, Matriz &mat)
     {
       string retornar = "";
@@ -245,7 +246,7 @@ class Matriz
     }
 
     //insere os valores do stdin em uma matriz
-    friend std::istream& operator>>(std::istream &entrada, Matriz &mat){
+   /* friend std::istream& operator>>(std::istream &entrada, Matriz &mat){
       int x;
       int y;
 
@@ -265,7 +266,26 @@ class Matriz
         }
       }
       return entrada;
+    }*/
+
+    //insere os valores do stdin em uma matriz
+    friend std::istream& operator>>(std::istream &entrada, Matriz &mat)
+    {
+      Vetor vec{mat.get_tam_y()};
+      
+      cout << "Matriz de tamanho x: " << mat.get_tam_x() << ", y: " << mat.get_tam_y() << endl;
+      for(int i = 0; i < mat.get_tam_x(); i++ )
+      {
+        vec.zerar_vetor();
+        cin >> vec;
+        for(int j = 0; j <mat.get_tam_y(); j++)
+        {
+          mat.set_valor(i, j, vec.get_valor(j));
+        }
+      }
+      return entrada;
     }
+
 };
 
 
