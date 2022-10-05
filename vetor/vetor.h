@@ -177,7 +177,7 @@ class Vetor
     }
 
     // escreve o conteudo de um vetor na tela 
-    friend std::ostream& operator<<(std::ostream& stream, Vetor &vec)
+    ostream& operator<<(std::ostream& stream, Vetor &vec)
     {
       int tamanho = vec.get_tamanho();
       string retornar = "";
@@ -191,7 +191,7 @@ class Vetor
     }
 
     //insere os valores do stdin em um vetor
-    friend std::istream& operator>>(istream &Entrada, Vetor &vet)
+    istream& operator>>(istream &Entrada, Vetor &vet)
     {
       string inp;
       string temp = "";
