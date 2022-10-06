@@ -229,7 +229,7 @@ class Matriz
     }
 
     //mostra o coteudo de uma matriz na tela
-    ostream& operator<<(std::ostream& stream, Matriz &mat)
+    friend ostream& operator<<(std::ostream& stream, Matriz &mat)
     {
       string retornar = "";
 
@@ -269,7 +269,7 @@ class Matriz
     }*/
 
     //insere os valores do stdin em uma matriz
-    istream& operator>>(std::istream &entrada, Matriz &mat)
+    friend istream& operator>>(std::istream &entrada, Matriz &mat)
     {
       Vetor vec{mat.get_tam_y()};
       
